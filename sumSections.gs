@@ -24,12 +24,15 @@ function sumSections() {
       cell = tables[table_index].getCell(row, column_index).getText();
       // Skip the "+" if present.
       if (cell[0] == '+') {
-        val = cell.slice(1);
+        val = cell.slice(1).replace(',', '.');
       }
       // Replace commas
       if (cell[1] == ',') {
         val = cell.replace(',', '.');
       }
+      else if (cell[2] == ',') {
+      val = cell.replace(',', '.');
+      }      
       else {
         val = cell;
       }
@@ -39,6 +42,6 @@ function sumSections() {
       }
     }
     // display result
-    tables[table_index].getCell(numRows-1,column_index).setText(section.toString());
+    tables[table_index].getCell(numRows-1,column_index).setText(section.toString().replace('.', ','));
   }
 }
