@@ -24,6 +24,9 @@ function sumAll() {
     if (cell[1] == ',') {
       val = cell.replace(',', '.');
     }
+    else if (cell[2] == ',') {
+      val = cell.replace(',', '.');
+    }
     else {
       val = cell;
     }
@@ -34,5 +37,5 @@ function sumAll() {
   }
   // display result
   var numRows2 = tables[5].getNumRows();
-  tables[5].getCell(numRows2-1,column_index).setText(total.toString());
+  tables[5].getCell(numRows2-1,column_index).setText(total.toString().replace('.', ','));
 }
